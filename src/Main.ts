@@ -44,7 +44,6 @@ const Main = () => {
             NavBar({
                 rows: [
                     { id: 1, title: "Introduction" },
-                    { id: 2, title: "Basics" },
                     { id: 3, title: "What Makes Up a Structured Product", subSections: ["Content", "Summary", "Quiz"] },
                     { id: 4, title: "Categories", subSections: ["Content", "Summary", "Quiz"] },
                     { id: 5, title: "Variations", subSections: ["Content", "Summary", "Quiz"] }
