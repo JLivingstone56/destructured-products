@@ -19,7 +19,7 @@ export const DictionaryParser = (props: DictionaryParserProps): HTMLElement => {
         case ContentType.Text:
             const textContent = sec.textRef ? textDictionary[sec.textRef] : "";
             console.log(textContent);
-            return needsHeading ? div(h2(sec.heading), ...textContent.split('\n').map(line => p(line))) : textContent.split('\n').map(line => p(line));
+            return needsHeading ? div(h2({class: 'section-sub-title'}, sec.heading), ...textContent.split('\n').map(line => p(line))) : textContent.split('\n').map(line => p(line));
         case ContentType.Image:
             return p("Image");
         case ContentType.Slides:

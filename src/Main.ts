@@ -1,39 +1,30 @@
 import van from "vanjs-core";
-import { Content } from "./Content";
-import { NavBar } from "./NavBar";
-import { Logo } from "./svg/Logo";
-import "./style.css";
+import { Content, ContentSection } from "./CMS/Content";
+import { NavBar } from "./CMS/NavBar";
+import { Logo } from "./Images/svg/Logo";
+import "./Styles/style.css";
+import { fetchContent } from "./DataAccess/fetchContent";
 
-const { div } = van.tags;
+const { div, h1, h2 } = van.tags;
 const app = document.querySelector<HTMLDivElement>("#app")!;
 
-const fetchContent = async (fileNames) => {
-    try {
-        const fetchPromises = fileNames.map(fileName =>
-            fetch(`./src/siteContent/${fileName}.json`).then(response => {
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch ${fileName}.json: ${response.statusText}`);
-                }
-                return response.json();
-            })
-        );
-        const data = await Promise.all(fetchPromises);
-        return data;
-    } catch (error) {
-        console.error(error);
-        return [];
-    }
-};
-
 const Main = () => {
-    const content = van.state<any[]>([]);
+    const content = van.state<ContentSection[]>([]);
 
-    const loadContent = async (fileNames) => {
+    const loadContent = async (fileNames: string[]) => {
         const data = await fetchContent(fileNames);
         content.val = data;
     };
 
-    const mapContent = (items: any[]) => div(items.map(it => Content(it)));
+    const mapContent = (items: ContentSection[]) => div(items.map(it => Content(it)));
+
+    const mapNavBar = (items: ContentSection[]) => NavBar({
+        rows: items.map(x => ({
+            id: x.id, 
+            title: x.title, 
+            subSections: x.dictionary?.map(section => section[1].heading) || []
+        }))
+    });
 
     loadContent(["Introduction"]);  // Load multiple content files
 
@@ -41,16 +32,20 @@ const Main = () => {
         div(
             { class: "nav-bar" },
             Logo(),
-            NavBar({
-                rows: [
-                    { id: 1, title: "Introduction" },
-                    { id: 3, title: "What Makes Up a Structured Product", subSections: ["Content", "Summary", "Quiz"] },
-                    { id: 4, title: "Categories", subSections: ["Content", "Summary", "Quiz"] },
-                    { id: 5, title: "Variations", subSections: ["Content", "Summary", "Quiz"] }
-                ]
-            }),
+            () => mapNavBar(content.val)
         ),
-        () => mapContent(content.val)
+        div(
+            { class: 'content' },
+            div(
+                { class: 'content-main' },
+                h1({ class: "title" }, "Structured Products"),
+                () => mapContent(content.val)
+            ),
+            div(
+                { class: 'content-nav' },
+                h2({ class: 'title' }, "Navigation")
+            )
+        )
     );
 };
 

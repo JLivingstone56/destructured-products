@@ -5,10 +5,10 @@ import { DictionaryParser } from "./components/dictionaryParser";
 const { div, h1, h2 } = van.tags;
 
 export enum ContentType {
-    Text = 1,
-    Image = 2,
-    Slides = 3,
-    Quiz = 4,
+    Text = "text",
+    Image = "image",
+    Slides = "slide",
+    Quiz = "quiz",
 }
 
 export interface Section {
@@ -21,28 +21,22 @@ export interface Section {
     quizName?: string;
 }
 
-interface ContentSection {
+export interface ContentSection {
+    id: number
     title: string;
     dictionary: [number, Section][];
 }
 
 // Make content a reactive state
-const contentState = van.state<ContentSection>({ title: '', dictionary: [] });
+const contentState = van.state<ContentSection>({ id:0, title: '', dictionary: [] });
 
 export const Content = (content: ContentSection) => {
     contentState.val = content;
     const elementArray = van.derive(() => contentState.val.dictionary.map(x => DictionaryParser({ section: x[1] })));
 
     return div(
-        { class: 'content' },
-        div(
-            { class: 'content-main' },
-            h1({ class: "title" }, () => contentState.val.title),
-            ...elementArray.val
-        ),
-        div(
-            { class: 'content-nav' },
-            h2({ class: 'title' }, "Navigation")
-        )
+        h2({ class: "section-title" }, () => contentState.val.title),
+        ...elementArray.val
+
     );
 };

@@ -120,6 +120,17 @@
     margin-top: 10px;
   }
 
+  .section-title{
+    color: rgb(65, 71, 115);
+    margin-bottom: 8px;
+  }
+
+  .section-sub-title{
+    color: rgb(36, 39, 64);
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+
   .nav-title{
     display: flex; /* Enables flexbox layout */
     align-items: center; 

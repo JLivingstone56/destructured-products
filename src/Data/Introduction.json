@@ -1,0 +1,10 @@
+{
+    "id": 1,
+    "title": ["Introduction"],
+    "dictionary": [
+      [1, { "order": 1, "heading": "Welcome to Structured Products Wiki", "type": "text", "textRef": "intro1" }],
+      [2, { "order": 2, "type": "text", "textRef": "intro2" }],
+      [3, { "order": 3, "type": "text", "textRef": "intro3" }]
+    ]
+  }
+  

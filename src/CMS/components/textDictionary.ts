@@ -1,5 +1,5 @@
 export const textDictionary = {
-    intro1: `Welcome to the wiki! In this section, we will explore the world of Structured Products, a complex financial instrument designed to meet` + 
+    intro1: `In this section, we will explore the world of Structured Products, a complex financial instrument designed to meet` + 
     `specific investment strategies and risk management needs. What exactly is a Structured Product? As you might guess from the name, these are not straightforward.`+
     `They are constructed from two or more financial instruments, combining derivatives with traditional securities to tailor the risk-return profile. `+
     `This wiki aims to demystify these sophisticated tools, making them accessible to everyone.`,
