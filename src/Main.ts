@@ -1,15 +1,19 @@
 import van from "vanjs-core";
-import { Content, ContentSection } from "./CMS/Content";
-import { NavBar } from "./CMS/NavBar";
+import { Content, ContentSection, Section } from "./CMS/Content";
+
 import { Logo } from "./Images/svg/Logo";
 import "./Styles/style.css";
 import { fetchContent } from "./DataAccess/fetchContent";
+import { SectionMenu } from "./CMS/SectionMenu";
+import { Navigation } from "./CMS/Navigation";
 
 const { div, h1, h2 } = van.tags;
 const app = document.querySelector<HTMLDivElement>("#app")!;
 
 const Main = () => {
     const content = van.state<ContentSection[]>([]);
+    const section = van.state<number>(1);
+    const navSection = van.state<number>(1);
 
     const loadContent = async (fileNames: string[]) => {
         const data = await fetchContent(fileNames);
@@ -18,7 +22,8 @@ const Main = () => {
 
     const mapContent = (items: ContentSection[]) => div(items.map(it => Content(it)));
 
-    const mapNavBar = (items: ContentSection[]) => NavBar({
+    const mapSectionMenu = (items: ContentSection[]) => SectionMenu({
+        currentSection: section,
         rows: items.map(x => ({
             id: x.id, 
             title: x.title, 
@@ -26,25 +31,23 @@ const Main = () => {
         }))
     });
 
-    loadContent(["Introduction"]);  // Load multiple content files
+    const mapNavigation = (items: ContentSection[]) => div({class: 'content-nav'}, ...items.map(x => Navigation(x, navSection)));
+    loadContent(["Introduction", "WhatIsSP", "SPMakeup"]);
 
     return div({ class: "page" },
         div(
             { class: "nav-bar" },
             Logo(),
-            () => mapNavBar(content.val)
+            () => mapSectionMenu(content.val)
         ),
         div(
             { class: 'content' },
             div(
                 { class: 'content-main' },
                 h1({ class: "title" }, "Structured Products"),
-                () => mapContent(content.val)
+                () => mapContent(content.val.filter(x => x.id === section.val))
             ),
-            div(
-                { class: 'content-nav' },
-                h2({ class: 'title' }, "Navigation")
-            )
+            () => mapNavigation(content.val.filter(x => x.id === section.val))    
         )
     );
 };
