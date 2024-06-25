@@ -1,0 +1,21 @@
+{
+    "name": "destructured-products-vanjs",
+    "description": "An example of using Van.js to create a site for structured products",
+    "author": "Jonathan Livingstone",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+      "dev": "vite",
+      "build": "tsc && vite build",
+      "preview": "vite preview"
+    },
+    "devDependencies": {
+      "typescript": "^5.5.2",
+      "vite": "^5.3.1"
+    },
+    "dependencies": {
+      "vanjs-core": "^1.5.0",
+      "vanjs-ext": "^0.6.0"
+    }
+  }
