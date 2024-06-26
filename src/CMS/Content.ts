@@ -16,7 +16,8 @@ export interface Section {
     heading: string;
     type: ContentType;
     textRef?: string;
-    image?: string;
+    image?: string[];
+    imageHeight?: number;
     slides?: string[];
     quizName?: string;
 }
