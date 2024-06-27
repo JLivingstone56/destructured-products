@@ -15,7 +15,7 @@ interface SectionMenuRow {
 export const SectionMenu = (config : SectionMenuConfig) => {   
     const renderRow = (row: SectionMenuRow) => {        
         return div(
-            div({ class: 'nav-title', onclick: () => {config.currentSection.val = row.id}},
+            div({ class: 'menu-title', onclick: () => {config.currentSection.val = row.id}},
                 p({style: "margin: 0"}, row?.title),
                 () => p({style: 'margin: 0'}, config.currentSection.val === row.id ? ">" : "")
             ),

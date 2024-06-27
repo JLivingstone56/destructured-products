@@ -36,7 +36,7 @@ export const Content = (content: ContentSection) => {
     const elementArray = van.derive(() => contentState.val.dictionary.map(x => DictionaryParser({ section: x[1] })));
 
     return div(
-        h2({ class: "section-title" }, () => contentState.val.title),
+        h2({ class: "main-title" }, () => contentState.val.title),
         ...elementArray.val
 
     );

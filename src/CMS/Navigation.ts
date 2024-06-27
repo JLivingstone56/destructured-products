@@ -7,7 +7,7 @@ export const Navigation = (content: ContentSection, selectedSection: State<numbe
     const filtered = content.dictionary.filter(rf => rf[1].heading != null && rf[1].heading != "");
     const renderRow = (id: number, section: Section) => {        
         return li(
-            { class: 'sub-section-title', onclick: () => {selectedSection.val = id}},
+            { class: 'navigation-title', onclick: () => {selectedSection.val = id}},
             section?.heading
         )  
     }

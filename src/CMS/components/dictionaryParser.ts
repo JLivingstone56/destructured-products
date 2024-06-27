@@ -28,7 +28,7 @@ export const DictionaryParser = (props: DictionaryParserProps): HTMLElement => {
             }
             console.log(textContent);
             return needsHeading ? 
-            div(h2({ class: 'section-sub-title' }, sec.heading), ...textContent.split('\n').map(line => p(line))) :
+            div(h2({ class: 'main-sub-title' }, sec.heading), ...textContent.split('\n').map(line => p(line))) :
             textContent.split('\n').map(line => p(line));
         case ContentType.Image:
             return div(

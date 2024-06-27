@@ -36,7 +36,7 @@ const Main = () => {
 
     return div({ class: "page" },
         div(
-            { class: "nav-bar" },
+            { class: "menu" },
             Logo(),
             () => mapSectionMenu(content.val)
         ),
