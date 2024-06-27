@@ -1,13 +1,14 @@
 import van from "vanjs-core";
-import { Content, ContentSection, Section } from "./CMS/Content";
+import { Content, ContentSection } from "./CMS/Content";
 
 import { Logo } from "./Images/svg/Logo";
 import "./Styles/style.css";
-import { fetchContent } from "./DataAccess/fetchContent";
+
 import { SectionMenu } from "./CMS/SectionMenu";
 import { Navigation } from "./CMS/Navigation";
+import { fetchContent } from "./Services/fetchContent";
 
-const { div, h1, h2 } = van.tags;
+const { div, h1 } = van.tags;
 const app = document.querySelector<HTMLDivElement>("#app")!;
 
 const Main = () => {
@@ -27,7 +28,7 @@ const Main = () => {
         rows: items.map(x => ({
             id: x.id, 
             title: x.title, 
-            subSections: x.dictionary?.map(section => section[1].heading) || []
+            subSections: x.sections?.map(section => section[1].heading) || []
         }))
     });
 
@@ -44,7 +45,7 @@ const Main = () => {
             { class: 'content' },
             div(
                 { class: 'content-main' },
-                h1({ class: "title" }, "Structured Products"),
+                h1({ class: "main-title" }, "Structured Products"),
                 () => mapContent(content.val.filter(x => x.id === section.val))
             ),
             () => mapNavigation(content.val.filter(x => x.id === section.val))    

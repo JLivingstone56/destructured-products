@@ -1,13 +1,15 @@
 import van from "vanjs-core";
-import { ContentType, Section } from "../Content";
-import { textDictionary } from './textDictionary';  // Import the dictionary
+import { ContentType, Section } from "../CMS/Content";
+import { TextParser } from "./textParser";
+import { allText } from "../Pages/TextContent/allText";
 
-interface DictionaryParserProps {
+interface PageStructureFactory {
     section: Section;
 }
 
-export const DictionaryParser = (props: DictionaryParserProps): HTMLElement => {
-    const { p, div, h2, img } = van.tags;
+const { p, div, h2, img } = van.tags;
+
+export const PageStructureFactory = (props: PageStructureFactory): HTMLElement => {
     const sec = props.section;
     const needsHeading = sec.heading != null;
 
@@ -20,16 +22,17 @@ export const DictionaryParser = (props: DictionaryParserProps): HTMLElement => {
         return imagePath;
     };
 
+    console.log(allText);
+
     switch (sec.type) {
         case ContentType.Text:
-            const textContent = sec.textRef ? textDictionary[sec.textRef] : "";
+            const textContent = sec.textRef ? allText[sec.textRef] : "";
             if (textContent == null || textContent == "") {
                 return div();
             }
-            console.log(textContent);
             return needsHeading ? 
-            div(h2({ class: 'main-sub-title' }, sec.heading), ...textContent.split('\n').map(line => p(line))) :
-            textContent.split('\n').map(line => p(line));
+                div(h2({ class: 'main-sub-title' }, sec.heading), ...TextParser(textContent)) :
+                TextParser(textContent);
         case ContentType.Image:
             return div(
                 {style: 'justify-content: center; display: flex; gap: 20px; flex-wrap: wrap'},

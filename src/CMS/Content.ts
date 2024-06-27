@@ -1,6 +1,6 @@
 import van from "vanjs-core";
-import { DictionaryParser } from "./components/dictionaryParser";
-// Import the dictionary
+import { PageStructureFactory } from "../Services/pageStructureFactory";
+// Import the sections
 
 const { div, h1, h2 } = van.tags;
 
@@ -12,7 +12,6 @@ export enum ContentType {
 }
 
 export interface Section {
-    order: number;
     heading: string;
     type: ContentType;
     textRef?: string;
@@ -25,15 +24,15 @@ export interface Section {
 export interface ContentSection {
     id: number
     title: string;
-    dictionary: [number, Section][];
+    sections: [number, Section][];
 }
 
 // Make content a reactive state
-const contentState = van.state<ContentSection>({ id:0, title: '', dictionary: [] });
+const contentState = van.state<ContentSection>({ id:0, title: '', sections: [] });
 
 export const Content = (content: ContentSection) => {
     contentState.val = content;
-    const elementArray = van.derive(() => contentState.val.dictionary.map(x => DictionaryParser({ section: x[1] })));
+    const elementArray = van.derive(() => contentState.val.sections.map(x => PageStructureFactory({ section: x[1] })));
 
     return div(
         h2({ class: "main-title" }, () => contentState.val.title),
