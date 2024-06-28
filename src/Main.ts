@@ -8,7 +8,7 @@ import { SectionMenu } from "./CMS/SectionMenu";
 import { Navigation } from "./CMS/Navigation";
 import { fetchContent } from "./Services/fetchContent";
 
-const { div, h1 } = van.tags;
+const { div, h1, img } = van.tags;
 const app = document.querySelector<HTMLDivElement>("#app")!;
 
 const Main = () => {
@@ -38,7 +38,7 @@ const Main = () => {
     return div({ class: "page" },
         div(
             { class: "menu" },
-            Logo(),
+            div({style: 'margin: 0px auto; max-height: 200px'}, img({ src: "/images/SiteHeader.png", alt: "Local Image", style: `height: 200px; ` })),
             () => mapSectionMenu(content.val)
         ),
         div(

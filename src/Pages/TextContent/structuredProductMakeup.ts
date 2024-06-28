@@ -34,5 +34,9 @@ export const structuredProductMakeup = {
     `on your profit. If you have a participation of **150%** and over a year your underlying asset has increased by **10%**, you receive a profit of **15%** (10 * 1.5). Lets look at an example of` + 
     `a capped trade with a participation of **100%**, vs one with **150%.**`,
 
-    SPM6: `As you can see here, the higher the particiption rate, the more you make in relation to an increase in the underlyings value. To highlight this I have picked three examples:`
+    SPM6: `As you can see here, the higher the particiption rate, the more you make in relation to an increase in the underlyings value. To highlight this I have picked three examples:
+    
+    [table][tr][td]**Underlying price**[/td][td]**PR 1, Cap 120%**[/td][td]**PR 1.5, Cap 120%**[/td][/tr]`+
+    `[tr][td]**115%**[/td][td]115% profit[/td][td]122.5% profit (100 + 15 x 1.5)[/td][/tr]`+
+    `[tr][td]**120%**[/td][td]120% profit[/td][td]130% profit (100 + 20 x 1.5)[/td][/tr][/table]`
 }
