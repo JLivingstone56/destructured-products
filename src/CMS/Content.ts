@@ -7,6 +7,7 @@ const { div, h1, h2 } = van.tags;
 export enum ContentType {
     Text = "text",
     Image = "image",
+    Table= "table",
     Slides = "slide",
     Quiz = "quiz",
 }

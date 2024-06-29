@@ -10,5 +10,10 @@ export const whatIsSP = {
 
     WSP3: `One of these products is a Phoenix/Autocall. Its worth mentioning that these names are often issuer defined, they are not an industru standard. We will however, when` +
         `relevant point out the meaning of the name and how it can help you understand the product (e.g 'autocall' because theres a feature that calls the note/pays you automatically)` +
-        `So lets get into a brief overview of what one of these products in general will look like and then we can jump into a Autocallable specifically.`
+        `So lets get into a brief overview of what one of these products in general will look like and then we can jump into a Autocallable specifically.`,
+
+    WSP4: `Structured products often include features of both call (upside) and put (downside) options. allowing investors to gain on the upside while having some protection on the downside.`+
+    `To fully understand structured products, it is crucial to grasp the mechanisms of these underlying options:`,
+
+    
 }

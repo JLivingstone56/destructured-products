@@ -65,6 +65,11 @@
     padding: 0px;
   }
 
+  li{
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+
   svg{
     margin: 0 auto;
   }

@@ -4,8 +4,15 @@ export const intro = {
     `They are constructed from two or more financial instruments, combining derivatives with traditional securities to tailor the risk-return profile. `+
     `This wiki aims to demystify these sophisticated tools, making them accessible to everyone.`,
 
-    intro2: `Structured Products are steeped in financial jargon which can be quite overwhelming. Terms like 'derivatives', 'principal protection', 'market-linked investment',`+
-    `and 'yield enhancement' are commonly thrown around when discussing these products. Each section of this wiki breaks down these terms and the underlying concepts`+
+    intro2: `Structured Products are steeped in financial jargon which you may have seen but never really grasped. These are terms like: 
+     [ul]`+
+    `[li]**Early Termination**[/li],` +
+    `[li]**Conditional Coupon**[/li],` +
+    `[li]**Participation Rate**[/li],` +
+    `[li]**Put Strike**[/li],` +
+    `[li]**Yield Enhancement**[/li],` +
+    `[/ul]
+    Terms like these are commonly thrown around when discussing these products. Each section of this wiki breaks down these terms and the underlying concepts`+
     `in a clear and concise manner. Plus, every topic is supplemented with summaries to help reinforce your understanding and quizzes to test your knowledge.`,
 
     intro3: `As you progress through this wiki, you will find detailed information on how Structured Products are created, priced, and how they function in different`+

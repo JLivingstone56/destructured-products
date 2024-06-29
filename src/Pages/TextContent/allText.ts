@@ -1,6 +1,6 @@
 import { intro } from "./intro";
-import { structuredProductMakeup } from "./structuredProductMakeup";
+import { callOptions } from "./callOptions";
 import { whatIsSP } from "./whatIsSP";
 
 
-export const allText = { ...intro, ...whatIsSP, ...structuredProductMakeup };
+export const allText = { ...intro, ...whatIsSP, ...callOptions };

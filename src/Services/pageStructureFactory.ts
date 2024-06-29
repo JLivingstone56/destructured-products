@@ -1,7 +1,8 @@
 import van from "vanjs-core";
-import { ContentType, Section } from "../CMS/Content";
 import { TextParser } from "./textParser";
 import { allText } from "../Pages/TextContent/allText";
+import { ContentType, Section } from "../CMS/Content";
+import { TableParser } from "./tableParser";
 
 interface PageStructureFactory {
     section: Section;
@@ -22,8 +23,6 @@ export const PageStructureFactory = (props: PageStructureFactory): HTMLElement =
         return imagePath;
     };
 
-    console.log(allText);
-
     switch (sec.type) {
         case ContentType.Text:
             const textContent = sec.textRef ? allText[sec.textRef] : "";
@@ -31,8 +30,15 @@ export const PageStructureFactory = (props: PageStructureFactory): HTMLElement =
                 return div();
             }
             return needsHeading ? 
-                div(h2({ class: 'main-sub-title' }, sec.heading), ...TextParser(textContent)) :
-                TextParser(textContent);
+                div({id: `${sec.textRef}`}, h2({ class: 'main-sub-title' }, sec.heading), ...TextParser(textContent, sec.textRef || "")) :
+                div({id: `${sec.textRef}`}, ...TextParser(textContent, sec.textRef || ""));
+        case ContentType.Table:
+            console.log("Found the table");
+            const tableContent = sec.textRef ? allText[sec.textRef] : "";
+            if (tableContent == null || tableContent == "") {
+                return div();
+            }
+            return div({id: `${sec.textRef}`}, TableParser(tableContent));
         case ContentType.Image:
             return div(
                 {style: 'justify-content: center; display: flex; gap: 20px; flex-wrap: wrap'},

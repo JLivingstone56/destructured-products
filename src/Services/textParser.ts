@@ -1,67 +1,33 @@
 import van from "vanjs-core";
 
-const { p, ul, li, strong, table, tr, td, img } = van.tags;
+const { p, ul, li, strong, div } = van.tags;
 
-export const TextParser = (text) => {
-           const parseBoldText = (content) => {
-            const parts = content.split(/\*\*(.*?)\*\*/);
-            return parts.map((part, index) => 
-                index % 2 === 1 ? strong(part) : part
-            );
-        };
 
-        // Replace list markers with <ul> and <li> tags
-        const ulPattern = /\[ul\](.*?)\[\/ul\]/gs;
-        const liPattern = /\[li\](.*?)\[\/li\]/g;
+export const TextParser = (text: string, textRef: string): HTMLElement[] => {
+    // Replace list markers with <ul> and <li> tags
+    const ulPattern = /\[ul\](.*?)\[\/ul\]/gs;
+    const liPattern = /\[li\](.*?)\[\/li\]/g;
 
-        let match;
-        let ulElements: HTMLElement[] = [];
+    let match;
+    let ulElements: HTMLElement[] = [];
 
-        while ((match = ulPattern.exec(text)) !== null) {
-            let ulContent = match[1];
-            let liElements: HTMLElement[] = [];
-            let liMatch;
+    while ((match = ulPattern.exec(text)) !== null) {
+        let ulContent = match[1];
+        let liElements: HTMLElement[] = [];
+        let liMatch;
+        let liCount = 0;
 
-            while ((liMatch = liPattern.exec(ulContent)) !== null) {
-                liElements.push(li(liMatch[1]));
-            }
-
-            ulElements.push(ul(...liElements));
+        while ((liMatch = liPattern.exec(ulContent)) !== null) {
+            liElements.push(li({id: `list-${textRef}-${liCount}`}, liMatch[1]));
+            liCount++
         }
 
-        text = text.replace(ulPattern, () => ulElements?.shift()?.outerHTML);
+        ulElements.push(ul(...liElements));
+    }
 
-        // Replace table markers with <table>, <tr>, and <td> tags
-        const tablePattern = /\[table\](.*?)\[\/table\]/gs;
-        const trPattern = /\[tr\](.*?)\[\/tr\]/g;
-        const tdPattern = /\[td\](.*?)\[\/td\]/g;
+    text = text.replace(ulPattern, () => ulElements?.shift()?.outerHTML || "");
+    text = text.replace(/\*\*(.*?)\*\*/g, (_match, p1) => strong(p1).outerHTML);
 
-        let tableMatch;
-        let tableElements: HTMLElement[] = [];
-
-        while ((tableMatch = tablePattern.exec(text)) !== null) {
-            let tableContent = tableMatch[1];
-            let trElements: HTMLElement[] = [];
-            let trMatch;
-
-            while ((trMatch = trPattern.exec(tableContent)) !== null) {
-                let trContent = trMatch[1];
-                let tdElements: HTMLElement[] = [];
-                let tdMatch;
-
-                while ((tdMatch = tdPattern.exec(trContent)) !== null) {
-                    tdElements.push(td(...parseBoldText(tdMatch[1])));
-                }
-
-                trElements.push(tr(...tdElements));
-            }
-
-            tableElements.push(table(...trElements));
-        }
-
-        text = text.replace(tablePattern, () => tableElements?.shift()?.outerHTML);
-        text = text.replace(/\*\*(.*?)\*\*/g, (match, p1) => strong(p1).outerHTML);
-
-        // Split text into paragraphs
-        return text.split('\n').map(line => p({ innerHTML: line }));
-    };
+    // Split text into paragraphs
+    return text.split('\n').map((line) => line.includes("<ul>") ? div({id: `list-${textRef}`, innerHTML: line}) : p({ innerHTML: line }));
+};

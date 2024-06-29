@@ -1,0 +1,15 @@
+{
+"id": 3,
+"title": ["Call Options"],
+"sections": [
+  [1, { "heading":"Call/Upside features", "type": "text", "textRef": "CO1" }],
+  [2, { "heading": "Capped vs Uncapped", "type": "text", "textRef": "CO2" }],
+  [3, { "type": "image", "image":  ["CapVUncapped"], "imageHeight": 250}],
+  [4, { "type": "text", "textRef": "CO3" }],
+  [5, { "heading":"Gearing/Participation", "type": "text", "textRef": "CO4" }],
+  [6, { "type": "image", "image":  ["ParticiptionRate"], "imageHeight": 200 }],
+  [7, { "type": "text", "textRef": "CO5" }],
+  [8, { "type": "table", "textRef": "CO6" }]
+  
+]
+}

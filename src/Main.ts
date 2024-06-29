@@ -1,7 +1,6 @@
 import van from "vanjs-core";
 import { Content, ContentSection } from "./CMS/Content";
 
-import { Logo } from "./Images/svg/Logo";
 import "./Styles/style.css";
 
 import { SectionMenu } from "./CMS/SectionMenu";
@@ -33,7 +32,7 @@ const Main = () => {
     });
 
     const mapNavigation = (items: ContentSection[]) => div({class: 'content-nav'}, ...items.map(x => Navigation(x, navSection)));
-    loadContent(["Introduction", "WhatIsSP", "SPMakeup"]);
+    loadContent(["Introduction", "WhatIsSP", "CallOptions"]);
 
     return div({ class: "page" },
         div(
