@@ -6,6 +6,8 @@
       [2, { "heading": "Static vs Contingent Barrier", "type": "text", "textRef": "PO2" }],
       [3, { "type": "image", "image":  ["StaticVContingent"], "imageHeight": 250}],
       [4, { "type": "text", "textRef": "PO3" }],
-      [5, { "heading": "Observation Periods", "type": "text", "textRef": "PO4" }]
+      [5, { "heading": "Observation Periods", "type": "text", "textRef": "PO4" }],
+      [6, { "heading": "Examples", "type": "text", "textRef": "PO5" }],
+      [7, { "type": "table", "textRef": "PO6" }]
     ]
 }

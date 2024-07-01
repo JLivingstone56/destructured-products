@@ -37,5 +37,13 @@ PO4:`We mentioned previously that a contingent barrier is one where you can be "
 [li]**Continuous:** If at any point of any day during the length of the deal, if we are below our knock-in barrier then a knock out event occurs.[/li][/ul]
 
 In the world of SP, If a knock out event occurs, this does not end the deal. Instead you are still exposed to price movements during the length of the deal, you `+
-`just also have no downside protection anymore.`
+`just also have no downside protection anymore.`,
+
+PO5:`Here are some examples of a **1 year** deal from **10/01/23** to **10/01/24**. I have below listed the date and price at each observation date:`,
+
+PO6:
+`[table][tr][td]**Date**[/td][td]**Underlying price**[/td][td]**Static 60% barrier**[/td][td]**Static 80% barrier**[/td][td]**Contingent: 65% barrier (Maturity)**[/td][td]**Contingent: 65% barrier (Daily)**[/td][/tr]`+
+`[tr][td]**10/01/2023**[/td][td]**100%**[/td][td]Proceed to maturity[/td][td]Proceed to maturity[/td][td]Proceed to maturity[/td][td]100% > 65% barrier (no knockout)[/td][/tr]`+
+`[tr][td]**10/06/2023**[/td][td]**60%**[/td][td]Proceed to maturity[/td][td]Proceed to maturity[/td][td]Proceed to maturity[/td][td]60% < 65% barrier (**knockout**)[/td][/tr]`+
+`[tr][td]**10/01/2024**[/td][td]**70%**[/td][td]**100%** (above barrier)[/td][td]**87.5%** (10% below barrier, 100%-(10x1.25))[/td][td]**100%**, (no knockout)[/td][td]**70%** (knockout)[/td][/tr][/table]`,
 }
