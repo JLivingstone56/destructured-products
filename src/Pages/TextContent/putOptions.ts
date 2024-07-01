@@ -26,5 +26,16 @@ PO3:`
 [li]**Static Barrier:** Alternatively, a put might feature a static barrier (static w/gearing). This barrier does not knock you out of all protection below the strike. `+
 `Instead there is a custom downside for all prices at maturity. In SP it is usually configured so that the protection is 100% until below the barrier `+ 
 `and then for every percentage below the barrier, gearing is 1/strike. E.G if your strike is 70% your **put gearing** is 1/0.7 which is 1.43. `+
-`This means that at **70%** you still get **100%** of your money back but at **69%** rather than losing **1%** you lose **1.43%** (**98.57%** return).[/li][/ul]`
+`This means that at **70%** you still get **100%** of your money back but at **69%** rather than losing **1%** you lose **1.43%** (**98.57%** return).[/li][/ul]`,
+
+PO4:`We mentioned previously that a contingent barrier is one where you can be "knocker-out". This means that if the price drops below the knock-in barrier ` +
+`you no longer get protection and instead simply lose your option to sell at the strike price. This observation however can be done at a few different intervals: 
+
+[ul][li]**At maturity:** We only observe the knock-out event if it occurs at the strike date of the deal, any dips below knock in barrier prior to this are not `+
+`considered.[/li]
+[li]**Daily:** At the end of each day we observe the final close price. If we are below our knock-in barrier then a knock out event occurs.[/li]
+[li]**Continuous:** If at any point of any day during the length of the deal, if we are below our knock-in barrier then a knock out event occurs.[/li][/ul]
+
+In the world of SP, If a knock out event occurs, this does not end the deal. Instead you are still exposed to price movements during the length of the deal, you `+
+`just also have no downside protection anymore.`
 }

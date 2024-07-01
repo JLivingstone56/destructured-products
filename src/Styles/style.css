@@ -95,7 +95,7 @@
     height: 100vh;
     padding: 20px;
     position: fixed;
-    width: 400px;
+    width: 350px;
   }
 
   .menu-title{
@@ -115,7 +115,7 @@
    /* Middle main content where the information lives*/
   .content{
     display: flex;
-    margin-left: 400px;
+    margin-left: 350px;
     padding-left: 20px;
     width: 100%;
   }
@@ -156,7 +156,7 @@
   .content-nav{
     position: fixed;
     right: 0;
-    width: calc((100% - 400px) * 0.3 - 20px);
+    width: calc((100% - 350px) * 0.3 - 20px);
   }
 
   .navigation-title{

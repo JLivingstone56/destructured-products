@@ -5,6 +5,7 @@
       [1, { "heading":"Put/Downside features", "type": "text", "textRef": "PO1" }],
       [2, { "heading": "Static vs Contingent Barrier", "type": "text", "textRef": "PO2" }],
       [3, { "type": "image", "image":  ["StaticVContingent"], "imageHeight": 250}],
-      [4, { "type": "text", "textRef": "PO3" }]
+      [4, { "type": "text", "textRef": "PO3" }],
+      [5, { "heading": "Observation Periods", "type": "text", "textRef": "PO4" }]
     ]
 }
