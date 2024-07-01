@@ -32,7 +32,7 @@ const Main = () => {
     });
 
     const mapNavigation = (items: ContentSection[]) => div({class: 'content-nav'}, ...items.map(x => Navigation(x, navSection)));
-    loadContent(["Introduction", "WhatIsSP", "CallOptions"]);
+    loadContent(["Introduction", "WhatIsSP", "CallOptions", "PutOptions"]);
 
     return div({ class: "page" },
         div(

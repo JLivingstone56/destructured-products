@@ -36,7 +36,7 @@ export const TableParser = (text: string): HTMLElement => {
         trElements.push(tr(...tdElements));
     }
 
-    text = text.replace(tablePattern, () => table(...trElements)?.outerHTML || "");
+    text = text.replace(tablePattern, () => table({style: 'table-layout: fixed; width: 800px;'}, ...trElements)?.outerHTML || "");
 
-    return div({ style: 'table-display', innerHTML: text });
+    return div({ class: 'main-table', innerHTML: text });
 }

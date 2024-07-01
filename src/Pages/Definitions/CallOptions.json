@@ -9,7 +9,7 @@
   [5, { "heading":"Gearing/Participation", "type": "text", "textRef": "CO4" }],
   [6, { "type": "image", "image":  ["ParticiptionRate"], "imageHeight": 200 }],
   [7, { "type": "text", "textRef": "CO5" }],
-  [8, { "type": "table", "textRef": "CO6" }]
-  
+  [8, { "type": "table", "textRef": "CO6" }],
+  [9, { "type": "text", "textRef": "CO7" }] 
 ]
 }

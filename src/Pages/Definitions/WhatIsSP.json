@@ -6,7 +6,7 @@
       [2, { "type": "text", "textRef": "WSP2" }],
       [3, { "type": "text", "textRef": "WSP3" }],
       [4, { "heading": "Call Vs Put", "type": "text", "textRef": "WSP4" }],
-      [5, { "type": "image", "image":  ["PutOption"], "imageHeight": 200}]
+      [5, { "type": "image", "image":  ["PutVsCallOption"], "imageHeight": 200}]
     ]
   }
   

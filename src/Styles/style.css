@@ -121,7 +121,7 @@
   }
 
   .content-main{
-    padding-right: 10px;
+    padding: 0 10px 30px 0;
     width: 70%;
   }
 
@@ -139,6 +139,17 @@
   .main-li{
     list-style: initial;
     margin: 0 0 0 20px;
+  }
+
+  .main-table{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  tr:first-child{
+    background-color: rgb(65, 71, 115);
+    color: #FFFFFF;
   }
 
    /* right hand nav where you can select to jump across a sections content*/

@@ -15,7 +15,7 @@ export const callOptions = {
     `market price at expiration and the strike price if favorable to the investor.[/li][/ul]`,
 
     CO2: `With Call options, the risk is limited. The worst case scenario, you dont exercise the option and you lose the fees paid. To balance this, issuers sometimes  will limit the ` +
-    `maximum gains. We call this a cap. Capped deals will have a **cap value**, which represents the maximum profit you can make over the given maturity period. below you `+
+    `maximum gains. We call this a cap. Capped deals will have a **cap value**, which represents the maximum underlying value where you can make any more profit over the given maturity period. below you `+
     `can see an example of a payoff graph for an uncapped vs a capped call:`,
 
     CO3: `Here you can see, in the left graph, that any increase in the value of the underlying over the length of the deal is 1:1 to the profit we make. However, for the right side, ` +
@@ -35,6 +35,11 @@ export const callOptions = {
 
     CO6:
     `[table][tr][td]**Underlying price**[/td][td]**PR 1, Cap 120%**[/td][td]**PR 1.5, Cap 120%**[/td][/tr]`+
-    `[tr][td]**115%**[/td][td]115% profit[/td][td]122.5% profit (100 + 15 x 1.5)[/td][/tr]`+
-    `[tr][td]**120%**[/td][td]120% profit[/td][td]130% profit (100 + 20 x 1.5)[/td][/tr][/table]`
+    `[tr][td]**115%**[/td][td]115% return[/td][td]122.5% return (100 + 15 x 1.5)[/td][/tr]`+
+    `[tr][td]**120%**[/td][td]120% return[/td][td]130% return (100 + 20 x 1.5)[/td][/tr]`+
+    `[tr][td]**180%**[/td][td]120% return[/td][td]130% return (100 + 20 x 1.5)[/td][/tr][/table]`,
+
+    CO7:
+    `As you can see, the higher participation rate means that at any level of profit we make 1.5x the amount as when the participation rate is 1. Furthermore, despite `+
+    `being capped at the same 120%, our geared cap is also 1.5x that, so while the PR1 deal maxes out at a 20% profit, the 1.5x deal maxes out at 30% (20x1.5).`
 }
