@@ -1,0 +1,15 @@
+{
+    "id": 5,
+    "title": ["Coupon"],
+    "sections": [
+      [1, { "heading":"Coupon Payments", "type": "text", "textRef": "CP1" }],
+      [2, { "heading": "Conditional vs Unconditional", "type": "text", "textRef": "CP2" }],
+      [3, { "type": "image", "image":  ["ConditionalVUnconditional"], "imageHeight": 250}],
+      [4, { "type": "text", "textRef": "CP3" }],
+      [5, { "heading":"Observation Frequency", "type": "text", "textRef": "CP4" }],
+      [6, { "type": "image", "image":  ["ObservationFrequency"], "imageHeight": 200 }],
+      [7, { "type": "text", "textRef": "CP5" }],
+      [8, { "type": "table", "textRef": "CP6" }],
+      [9, { "type": "text", "textRef": "CP7" }] 
+    ]
+    }
