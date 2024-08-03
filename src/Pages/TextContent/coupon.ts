@@ -3,27 +3,22 @@ export const coupon = {
     `instance, a yearly coupon could have a value of **10%** coupon per annum.
 
     **Scenario**: The option has a two-year term with a annual coupon set at 10% CPA. At the end of the year, Google's price has risen `+
-    `to $120, the investor .
+    `to $120, the investor recieves $12 and the deal continues to its second year.
 
     **Key Points**:
     [ul]
-    [li]No Obligation to Buy: If the market price at expiration is below the strike price (e.g., $90), the investor can choose not to exercise the option, thus avoiding `+
-    `a loss from buying above market value. This illustrates why the call option relates only to potential profits and limits the loss to the paid premium.[/li]
+    [li]**Coupon Frequency**: In this example the coupon pays yearly. so 10% of the current value is paid each year. The percentage is typically always listed` +
+    `as per year, however this frequency can vary (Monthly, Quarterly, Semi-Annual & Annual).[/li]
 
-    [li]Cash Settlement: Actual shares are not necessarily exchanged. Instead, the transaction might be settled in cash, representing the difference between the `+
-    `market price at expiration and the strike price if favorable to the investor.[/li][/ul]`,
+    [li]**Coupon Conditions**: In this example we didn't specify any condition for a coupon. While this is the case **sometimes** we more often will `+
+    `have levels which the price must be above to be paid the coupon, known as the 'coupon barrier'.[/li][/ul]`,
 
-    CP2: `With Call options, the risk is limited. The worst case scenario, you dont exercise the option and you lose the fees paid. To balance this, issuers sometimes  will limit the ` +
-    `maximum gains. We call this a cap. Capped deals will have a **cap value**, which represents the maximum underlying value where you can make any more profit over the given maturity period. below you `+
-    `can see an example of a payoff graph for an uncapped vs a capped call:`,
+    CP2: `As mentioned in the key points above, any coupon is typically listed as a percentage per annum. However this often can be paid on a non yearly interval. `+
+    `For instance, if you had a 10% CPA and your observation frequency was quarterly then at every three months a coupon of 2.5% is paid (10%/4).`,
 
-    CP3: `Here you can see, in the left graph, that any increase in the value of the underlying over the length of the deal is 1:1 to the profit we make. However, for the right side, ` +
-    `while we begin with our profit at 1:1 with the underlying value, at a certain point (e.g 20% profit) we no longer realize any more gains front the `+
-    `underlying asset increasing in value and our profit flatlines.
-    
-    In this regard it is a balancing act, one might ask, "Is the protection offered by my lack of obligation worth the chance of me losing `+
-    `out on extra profit". The answer to this will vary depending on the investor, the asset, the timeframe etc. This is not the only way a call can change. In the first graph you may `+ 
-    `have noticed the green line didn't run in parallel to the underlying before being capped, This is to do with **Gearing/Participation**.`,
+    CP3: `Here you can see, in the left graph, that we recieve four coupon payments of 2.5% over time at each **observation date**. However, in the right hand `+
+    `graph, we recieve it all in one 10% installment at year end. You may wonder why this is referred to as an observation date, as opposed to a payment date. `+
+    `This is due to the other factor not yet mentioned, conditional coupons.`,
 
     CP4: `Our first example of capped vs uncapped showed how an issuer can limit profit on the upside. However, issuers also often will add incentives to their call option.` +
     `Gearing/Participation (I'll exclusively user participation from hear on out for simplicity) is one of the ways they do this. The easiest way to understand participation is like a multiplier `+
