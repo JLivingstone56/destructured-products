@@ -49,7 +49,6 @@ const Main = () => {
             () => mapNavigation(content.val.filter(x => x.id === section.val))
         )
     );
-
 };
 
 van.add(app, Main());
