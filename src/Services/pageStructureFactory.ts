@@ -30,7 +30,7 @@ export const PageStructureFactory = (props: PageStructureFactory): HTMLElement =
                 return div();
             }
             return needsHeading ? 
-                div({id: `${sec.textRef}`}, h2({ class: 'main-sub-title' }, sec.heading), ...TextParser(textContent, sec.textRef || "")) :
+                div({id: `${sec.heading ?? sec.textRef}`}, h2({ class: 'main-sub-title' }, sec.heading), ...TextParser(textContent, sec.textRef || "")) :
                 div({id: `${sec.textRef}`}, ...TextParser(textContent, sec.textRef || ""));
         case ContentType.Table:
             console.log("Found the table");

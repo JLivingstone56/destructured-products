@@ -21,23 +21,22 @@ const Main = () => {
     };
 
     const mapContent = (items: ContentSection[]) => div(items.map(it => Content(it)));
-
     const mapSectionMenu = (items: ContentSection[]) => SectionMenu({
         currentSection: section,
         rows: items.map(x => ({
-            id: x.id, 
-            title: x.title, 
+            id: x.id,
+            title: x.title,
             subSections: x.sections?.map(section => section[1].heading) || []
         }))
     });
+    const mapNavigation = (items: ContentSection[]) => div({ class: 'content-nav' }, ...items.map(x => Navigation(x, navSection)));
 
-    const mapNavigation = (items: ContentSection[]) => div({class: 'content-nav'}, ...items.map(x => Navigation(x, navSection)));
     loadContent(["Introduction", "WhatIsSP", "CallOptions", "PutOptions", "Coupon"]);
 
     return div({ class: "page" },
         div(
             { class: "menu" },
-            div({style: 'margin: 0px auto; max-height: 200px'}, img({ src: "/images/SiteHeader.png", alt: "Local Image", style: `height: 200px; ` })),
+            div({ style: 'margin: 0px auto; max-height: 200px' }, img({ src: "/images/SiteHeader.png", alt: "Local Image", style: `height: 200px; ` })),
             () => mapSectionMenu(content.val)
         ),
         div(
@@ -47,9 +46,10 @@ const Main = () => {
                 h1({ class: "main-title" }, "Structured Products"),
                 () => mapContent(content.val.filter(x => x.id === section.val))
             ),
-            () => mapNavigation(content.val.filter(x => x.id === section.val))    
+            () => mapNavigation(content.val.filter(x => x.id === section.val))
         )
     );
+
 };
 
 van.add(app, Main());
