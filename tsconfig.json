@@ -13,7 +13,7 @@
       "outDir": "./dist",  // Specify output directory
       "rootDir": "./src"   // Specify root directory of input files
     },
-    "include": ["src"],
+    "include": ["src", "vite-env.d.ts"],
     "exclude": ["node_modules"]
   }
   
