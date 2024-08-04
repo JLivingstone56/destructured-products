@@ -1,6 +1,9 @@
-// vite.config.js
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/destructured-products/', // Replace <REPO_NAME> with the name of your repository
+  base: process.env.NODE_ENV === 'production' ? '/destructured-products/' : '/',
+  build: {
+    outDir: 'dist/client', // Adjust the output directory if needed
+  },
+  publicDir: 'public'
 });
