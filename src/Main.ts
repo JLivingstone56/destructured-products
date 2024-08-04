@@ -10,17 +10,18 @@ import { fetchContent } from "./Services/fetchContent";
 const { div, h1, img } = van.tags;
 const app = document.querySelector<HTMLDivElement>("#app")!;
 
-const Main = () => {
+const Main = async () => {
+    //Define state members for all site content, page you are on & 
+    //the section you are at within that.
     const content = van.state<ContentSection[]>([]);
     const section = van.state<number>(1);
-    const navSection = van.state<number>(1);
+    const subSection = van.state<number>(1);
 
-    const loadContent = async (fileNames: string[]) => {
-        const data = await fetchContent(fileNames);
-        content.val = data;
-    };
+    //Load site content
+    content.val = await fetchContent(["Introduction", "WhatIsSP", "CallOptions", "PutOptions", "Coupon"]);
 
-    const mapContent = (items: ContentSection[]) => div(items.map(it => Content(it)));
+    //define functions for rendering content
+    const mapContent = (item: ContentSection) => div(() => Content(item));
     const mapSectionMenu = (items: ContentSection[]) => SectionMenu({
         currentSection: section,
         rows: items.map(x => ({
@@ -29,9 +30,7 @@ const Main = () => {
             subSections: x.sections?.map(section => section[1].heading) || []
         }))
     });
-    const mapNavigation = (items: ContentSection[]) => div({ class: 'content-nav' }, ...items.map(x => Navigation(x, navSection)));
-
-    loadContent(["Introduction", "WhatIsSP", "CallOptions", "PutOptions", "Coupon"]);
+    const mapNavigation = (item: ContentSection) => div({ class: 'content-nav' }, () => Navigation(item, subSection));
 
     return div({ class: "page" },
         div(
@@ -44,11 +43,11 @@ const Main = () => {
             div(
                 { class: 'content-main' },
                 h1({ class: "main-title" }, "Structured Products"),
-                () => mapContent(content.val.filter(x => x.id === section.val))
+                () => mapContent(content.val.filter(x => x.id === section.val)[0])
             ),
-            () => mapNavigation(content.val.filter(x => x.id === section.val))
+            () => mapNavigation(content.val.filter(x => x.id === section.val)[0])
         )
     );
 };
 
-van.add(app, Main());
+van.add(app, await Main());
