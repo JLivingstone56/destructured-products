@@ -18,14 +18,14 @@ export const PageStructureFactory = (props: PageStructureFactory): HTMLElement =
         return div();  // Return an empty div if section is null
     }
 
-    const loadImage = (imageName) => {
+    const loadImage = (imageName: string) => {
         const imagePath = `/images/${imageName}.png`; // Assuming images are in public/images/static
         return imagePath;
     };
 
     switch (sec.type) {
         case ContentType.Text:
-            const textContent = sec.textRef ? allText[sec.textRef] : "";
+            const textContent: string = sec.textRef ? allText[sec.textRef] : "";
             if (textContent == null || textContent == "") {
                 return div();
             }

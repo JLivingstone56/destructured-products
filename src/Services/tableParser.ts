@@ -1,7 +1,7 @@
 import van from "vanjs-core";
 const { strong, table, tr, td, div, p } = van.tags;
 
-const parseBoldText = (content) => {
+const parseBoldText = (content: string) => {
     const parts = content.split(/\*\*(.*?)\*\*/);
     return parts.map((part, index) =>
         index % 2 === 1 ? strong(part) : part

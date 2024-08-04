@@ -9,7 +9,9 @@
       "moduleResolution": "node",
       "skipLibCheck": true,
       "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true
+      "forceConsistentCasingInFileNames": true,
+      "outDir": "./dist",  // Specify output directory
+      "rootDir": "./src"   // Specify root directory of input files
     },
     "include": ["src"],
     "exclude": ["node_modules"]

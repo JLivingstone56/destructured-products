@@ -4,5 +4,8 @@ import { whatIsSP } from "./whatIsSP";
 import { putOptions } from "./putOptions";
 import { coupon } from "./coupon";
 
+interface TextDictionary {
+    [key: string]: string;
+  }
 
-export const allText = { ...intro, ...whatIsSP, ...callOptions, ...putOptions, ...coupon };
+export const allText: TextDictionary = { ...intro, ...whatIsSP, ...callOptions, ...putOptions, ...coupon };
