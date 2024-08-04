@@ -50,4 +50,8 @@ const Main = async () => {
     );
 };
 
-van.add(app, await Main());
+const init = async () => {
+    van.add(app, await Main());
+};
+
+init();
