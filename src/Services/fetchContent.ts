@@ -3,7 +3,7 @@ import { ContentSection } from "../CMS/Content";
 export const fetchContent = async (fileNames: string[]): Promise<ContentSection[]> => {
     try {
         const fetchPromises = fileNames.map(fileName =>
-            fetch(`./src/Pages/Definitions/${fileName}.json`).then(response => {
+            fetch(`/src/Pages/Definitions/${fileName}.json`).then(response => {
                 if (!response.ok) {
                     throw new Error(`Failed to fetch ${fileName}.json: ${response.statusText}`);
                 }
