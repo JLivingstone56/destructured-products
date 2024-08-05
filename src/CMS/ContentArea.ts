@@ -27,7 +27,9 @@ const ContentArea = (
                 h1({ class: "main-title" }, "Structured Products"),
                 () => currentSection && Page(currentSection)
             ),
-            () => currentSection && Navigation(currentSection, subSection)
+            div (
+                { class: 'content-nav' },
+                () => currentSection && Navigation(currentSection, subSection))
         );
     }
 };
