@@ -11,6 +11,7 @@ interface PageStructureFactory {
 const { p, div, h2, img } = van.tags;
 
 export const PageStructureFactory = (props: PageStructureFactory): HTMLElement => {
+    const basePath = import.meta.env.VITE_API_URL;
     const sec = props.section;
     const needsHeading = sec.heading != null;
 
@@ -19,7 +20,7 @@ export const PageStructureFactory = (props: PageStructureFactory): HTMLElement =
     }
 
     const loadImage = (imageName: string) => {
-        const imagePath = `/images/${imageName}.png`; // Assuming images are in public/images/static
+        const imagePath = `${basePath}/images/${imageName}.png`; // Assuming images are in public/images/static
         return imagePath;
     };
 
