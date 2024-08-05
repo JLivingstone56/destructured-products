@@ -11,6 +11,7 @@ const { div, h1, img } = van.tags;
 const app = document.querySelector<HTMLDivElement>("#app")!;
 
 const Main = async () => {
+    const basePath = import.meta.env.VITE_API_URL;
     //Define state members for all site content, page you are on & 
     //the section you are at within that.
     const content = van.state<ContentSection[]>([]);
@@ -35,7 +36,7 @@ const Main = async () => {
     return div({ class: "page" },
         div(
             { class: "menu" },
-            div({ style: 'margin: 0px auto; max-height: 200px' }, img({ src: "/images/SiteHeader.png", alt: "Local Image", style: `height: 200px; ` })),
+            div({ style: 'margin: 0px auto; max-height: 200px' }, img({ src: `${basePath}/images/SiteHeader.png`, alt: "Local Image", style: `height: 200px; ` })),
             () => mapSectionMenu(content.val)
         ),
         div(
