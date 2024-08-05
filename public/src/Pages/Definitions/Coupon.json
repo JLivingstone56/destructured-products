@@ -1,6 +1,6 @@
 {
     "id": 5,
-    "title": ["Coupon"],
+    "title": ["Coupon Payments"],
     "sections": [
       [1, { "heading":"Coupon Payments", "type": "text", "textRef": "CP1" }],
       [2, { "heading": "Observation Frequency", "type": "text", "textRef": "CP2" }],
