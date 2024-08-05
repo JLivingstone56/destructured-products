@@ -8,10 +8,10 @@ export const callOptions = {
 
     **Key Points**:
     [ul]
-    [li]No Obligation to Buy: If the market price at expiration is below the strike price (e.g., $90), the investor can choose not to exercise the option, thus avoiding `+
+    [li]**No Obligation to Buy:** If the market price at expiration is below the strike price (e.g., $90), the investor can choose not to exercise the option, thus avoiding `+
     `a loss from buying above market value. This illustrates why the call option relates only to potential profits and limits the loss to the paid premium.[/li]
 
-    [li]Cash Settlement: Actual shares are not necessarily exchanged. Instead, the transaction might be settled in cash, representing the difference between the `+
+    [li]**Cash Settlement:** Actual shares are not necessarily exchanged. Instead, the transaction might be settled in cash, representing the difference between the `+
     `market price at expiration and the strike price if favorable to the investor.[/li][/ul]`,
 
     CO2: `With Call options, the risk is limited. The worst case scenario, you dont exercise the option and you lose the fees paid. To balance this, issuers sometimes  will limit the ` +
