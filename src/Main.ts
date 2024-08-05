@@ -27,7 +27,7 @@ const Main = async () => {
     return div({ class: "page" },
         div(
             { class: "menu" },
-            div(
+            div({ class: "menu-content" },
                 div({ style: 'margin: 0px auto; max-height: 200px' }, img({ src: `${basePath}/images/SiteHeader.png`, alt: "Local Image", style: `height: 200px; `})),
                 () => SectionMenu({
                     currentSection: section,

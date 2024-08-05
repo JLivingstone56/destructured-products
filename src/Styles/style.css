@@ -99,6 +99,11 @@
     width: 350px;
   }
 
+  .menu-content{
+    display: flex;
+    flex-direction: column;
+  }
+
   .menu-title{
     align-items: center; 
     display: flex; /* Enables flexbox layout */
