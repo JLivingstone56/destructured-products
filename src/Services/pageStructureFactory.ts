@@ -1,11 +1,11 @@
 import van from "vanjs-core";
 import { TextParser } from "./textParser";
-import { allText } from "../Pages/TextContent/allText";
-import { ContentType, Section } from "../CMS/Content";
+import { allText } from "../SiteText/allText";
+import { ContentType, PageSection } from "../CMS/Page";
 import { TableParser } from "./tableParser";
 
 interface PageStructureFactory {
-    section: Section;
+    section: PageSection;
 }
 
 const { p, div, h2, img } = van.tags;
@@ -34,7 +34,6 @@ export const PageStructureFactory = (props: PageStructureFactory): HTMLElement =
                 div({id: `${sec.heading ?? sec.textRef}`}, h2({ class: 'main-sub-title' }, sec.heading), ...TextParser(textContent, sec.textRef || "")) :
                 div({id: `${sec.textRef}`}, ...TextParser(textContent, sec.textRef || ""));
         case ContentType.Table:
-            console.log("Found the table");
             const tableContent = sec.textRef ? allText[sec.textRef] : "";
             if (tableContent == null || tableContent == "") {
                 return div();
@@ -46,8 +45,6 @@ export const PageStructureFactory = (props: PageStructureFactory): HTMLElement =
                  sec.image?.map(x => img({ src: loadImage(x), alt: "Local Image", style: `max-height: ${sec?.imageHeight ?? 200}px` })));
         case ContentType.Slides:
             return p("Slides");
-        case ContentType.Quiz:
-            return p("Quiz");
         default:
             return div();  // Return an empty div for unknown content types
     }

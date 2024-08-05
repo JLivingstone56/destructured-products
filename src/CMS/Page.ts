@@ -2,36 +2,34 @@ import van from "vanjs-core";
 import { PageStructureFactory } from "../Services/pageStructureFactory";
 // Import the sections
 
-const { div, h1, h2 } = van.tags;
+const { div, h2 } = van.tags;
 
 export enum ContentType {
     Text = "text",
     Image = "image",
     Table= "table",
-    Slides = "slide",
-    Quiz = "quiz",
+    Slides = "slide"
 }
 
-export interface Section {
+export interface PageSection {
     heading: string;
     type: ContentType;
     textRef?: string;
     image?: string[];
     imageHeight?: number;
     slides?: string[];
-    quizName?: string;
 }
 
-export interface ContentSection {
+export interface PageDefinition {
     id: number
     title: string;
-    sections: [number, Section][];
+    sections: [number, PageSection][];
 }
 
 // Make content a reactive state
-const contentState = van.state<ContentSection>({ id:0, title: '', sections: [] });
+const contentState = van.state<PageDefinition>({ id:0, title: '', sections: [] });
 
-export const Content = (content: ContentSection) => {
+export const Page = (content: PageDefinition) => {
     contentState.val = content;
     const elementArray = van.derive(() => contentState.val.sections.map(x => PageStructureFactory({ section: x[1] })));
 
