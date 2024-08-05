@@ -7,7 +7,7 @@ import { SectionMenu } from "./CMS/SectionMenu";
 import { fetchContent } from "./Services/fetchContent";
 import ContentArea from "./CMS/ContentArea";
 
-const { div, h1, img } = van.tags;
+const { div, img, p } = van.tags;
 const app = document.querySelector<HTMLDivElement>("#app")!;
 
 const Main = async () => {
@@ -27,15 +27,18 @@ const Main = async () => {
     return div({ class: "page" },
         div(
             { class: "menu" },
-            div({ style: 'margin: 0px auto; max-height: 200px' }, img({ src: `${basePath}/images/SiteHeader.png`, alt: "Local Image", style: `height: 200px; `})),
-            () => SectionMenu({
-                currentSection: section,
-                rows: pages.val.map(x => ({
-                    id: x.id,
-                    title: x.title,
-                    subSections: x.sections?.map(section => section[1].heading) || []
-                }))
-            })
+            div(
+                div({ style: 'margin: 0px auto; max-height: 200px' }, img({ src: `${basePath}/images/SiteHeader.png`, alt: "Local Image", style: `height: 200px; `})),
+                () => SectionMenu({
+                    currentSection: section,
+                    rows: pages.val.map(x => ({
+                        id: x.id,
+                        title: x.title,
+                        subSections: x.sections?.map(section => section[1].heading) || []
+                    }))
+                })
+            ),
+            div(p("© Jonathan Livingstone 2024"))
         ),
         () => ContentArea(pages, section, subSection, isLoggedIn, isGuest)
     );
