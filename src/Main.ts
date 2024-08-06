@@ -22,7 +22,7 @@ const Main = async () => {
     const isGuest = van.state<boolean>(false);
 
     //Load site content
-    pages.val = await fetchContent(["Introduction", "WhatIsSP", "CallOptions", "PutOptions", "Coupon"]);
+    pages.val = await fetchContent(["Introduction", "WhatIsSP", "CallOptions", "PutOptions", "Coupon", "EarlyRedemption"]);
 
     return div({ class: "page" },
         div(
